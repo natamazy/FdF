@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:58 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/13 19:54:55 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/13 22:00:18 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+
+# include <stdio.h>
 
 typedef struct s_vars
 {
@@ -35,5 +37,12 @@ int		ft_strcmp(const char *s1, const char *s2);
 
 // Functions in validation.c
 int		validation(int argc, char *argv[], t_vars *vars);
+
+// Functions in ft_split.c
+char	**ft_split(char const *s, char c);
+
+// Functions in ft_split_utils.c
+int		ft_isspace(char c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
