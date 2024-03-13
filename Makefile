@@ -4,7 +4,8 @@ NAME = fdf
 # Compilator
 CC = cc
 # Compilator flags
-CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I minilibx_macos #-g3 -fsanitize=address
+LDFLAGS = -L minilibx_macos -lmlx -framework OpenGL -framework AppKit
 
 # Headers
 HEADERS = includes/fdf.h
@@ -15,7 +16,7 @@ SRCS_DIR = utilities/
 OBJS_DIR = objects/
 
 # Source file names
-SRCS_NAME = main.c \
+SRCS_NAME = fdf.c \
 
 # Objects file names
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAME))
@@ -25,7 +26,7 @@ OBJS_NAME = $(SRCS_NAME:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HEADERS) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
