@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 11:25:54 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/13 19:53:38 by natamazy         ###   ########.fr       */
+/*   Created: 2024/03/13 19:34:25 by natamazy          #+#    #+#             */
+/*   Updated: 2024/03/13 19:49:37 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-#include "../minilibx_macos/mlx.h"
 
-#include <stdio.h>
-
-int	main(int argc, char *argv[])
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_vars	vars;
-
-	validation(argc, argv, &vars);
+	if (fd < 0)
+		return ;
+	if (!s)
+	{
+		write(fd, "(null)", 6);
+		return ;
+	}
+	write(fd, s, ft_strlen(s));
 }

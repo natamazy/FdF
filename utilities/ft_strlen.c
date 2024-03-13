@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 11:25:54 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/13 19:53:38 by natamazy         ###   ########.fr       */
+/*   Created: 2024/03/13 19:37:39 by natamazy          #+#    #+#             */
+/*   Updated: 2024/03/13 19:49:46 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-#include "../minilibx_macos/mlx.h"
 
-#include <stdio.h>
-
-int	main(int argc, char *argv[])
+size_t	ft_strlen(const char *s)
 {
-	t_vars	vars;
+	size_t	i;
 
-	validation(argc, argv, &vars);
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
