@@ -6,7 +6,7 @@
 #    By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 18:15:04 by natamazy          #+#    #+#              #
-#    Updated: 2024/03/14 18:15:05 by natamazy         ###   ########.fr        #
+#    Updated: 2024/03/14 18:16:07 by natamazy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LDFLAGS = -Lminilibx_macos -lmlx -framework OpenGL -framework AppKit
 HEADERS = includes/fdf.h
 
 # Source directory
-SRCS_DIR = utilities/
+SRCS_DIR = functions/
 # Objects directory
 OBJS_DIR = objects/
 
