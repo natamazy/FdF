@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:58 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/14 11:48:06 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:11:09 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_vars
 {
 	int	**map;
+	int	**temp_map;
 	int	x_size;
 	int	y_size;
 }	t_vars;
@@ -41,8 +42,7 @@ int		validation(int argc, char *argv[], t_vars *vars);
 // Functions in ft_split.c
 char	**ft_split(char *str, char *charset);
 
-// Functions in ft_split_utils.c
-int		ft_isspace(char c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+// Functions in ft_atoi.c
+int		ft_atoi(const char *str);
 
 #endif

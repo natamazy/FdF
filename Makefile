@@ -4,7 +4,7 @@ NAME = fdf
 # Compilator
 CC = cc
 # Compilator flags
-CFLAGS = -I minilibx_macos #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I minilibx_macos #-g3 -fsanitize=address
 LDFLAGS = -Lminilibx_macos -lmlx -framework OpenGL -framework AppKit
 
 # Headers
@@ -24,7 +24,7 @@ SRCS_NAME = fdf.c \
 			get_next_line.c \
 			get_next_line_utils.c \
 			ft_split.c \
-			ft_split_utils.c
+			ft_atoi.c
 
 # Objects file names
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAME))

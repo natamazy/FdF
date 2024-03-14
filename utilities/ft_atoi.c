@@ -1,33 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 11:25:54 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/14 13:40:17 by natamazy         ###   ########.fr       */
+/*   Created: 2024/03/14 12:28:11 by natamazy          #+#    #+#             */
+/*   Updated: 2024/03/14 12:28:50 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-#include "../minilibx_macos/mlx.h"
 
-#include <stdio.h>
-
-int	main(int argc, char *argv[])
+int	ft_isdigit(int c)
 {
-	t_vars	vars;
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
+}
 
-	validation(argc, argv, &vars);
-	for (int i = 0; i < vars.y_size; i++)
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	sign;
+	int	res;
+
+	i = 0;
+	sign = 1;
+	res = 0;
+	while (str[i] != '\0' && ((str[i] >= 9 && str[i] <= 13) || str[i] == 32))
+		i++;
+	if (str[i] == '-')
 	{
-		for (int j = 0; j < vars.x_size; j++)
-		{
-			printf("%d ", vars.map[i][j]);
-		}
-		printf("\n");
+		sign = -1;
+		i++;
 	}
-	
-	system("leaks fdf");
+	else if (str[i] == '+')
+		i++;
+	while (str[i] != '\0' && ft_isdigit(str[i]))
+	{
+		res *= 10;
+		res += str[i] - '0';
+		i++;
+	}
+	return (res * sign);
 }
