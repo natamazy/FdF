@@ -21,6 +21,7 @@ SRCS_NAME = fdf.c \
 			ft_strcmp.c \
 			ft_strlen.c \
 			validation.c \
+			validation_utils.c \
 			get_next_line.c \
 			get_next_line_utils.c \
 			ft_split.c \

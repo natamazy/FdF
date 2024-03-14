@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:58 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/14 13:11:09 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:07:04 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@
 
 typedef struct s_vars
 {
-	int	**map;
-	int	**temp_map;
-	int	x_size;
-	int	y_size;
+	int		**map;
+	int		**temp_map;
+	int		x_size;
+	int		y_size;
+	char	*row;
+	char	**row_splited;
 }	t_vars;
 
 // Functions in ft_putstr_fd.c
@@ -44,5 +46,12 @@ char	**ft_split(char *str, char *charset);
 
 // Functions in ft_atoi.c
 int		ft_atoi(const char *str);
+
+// fdf_utils1
+void	free_array(char **array);
+void	free_int_matrix(int **matrix);
+int		ft_array_len(char **array);
+int		*convert_line(t_vars *vars);
+int		pfree(char *str, t_vars *vars, int return_value);
 
 #endif
