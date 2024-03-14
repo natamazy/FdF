@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:54 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/14 18:11:04 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:45:13 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,4 @@ int	main(int argc, char *argv[])
 	if (validation(argc, argv, &vars) == 1)
 		return (1);
 }
+

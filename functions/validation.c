@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 19:20:05 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/14 18:10:22 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:44:17 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,10 @@ int	validation(int argc, char **argv, t_vars *vars)
 		return (1);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		return (pfree("File opening failed.\n", NULL, 1));
+	{
+		ft_putstr_fd("File opening failed.\n", 2);
+		return (1);
+	}
 	if (parsing_first_line(fd, vars) == 1
 		|| parsing_other_lines(fd, vars) == 1)
 	{
