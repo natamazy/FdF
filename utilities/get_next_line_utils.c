@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 16:38:23 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/13 21:48:09 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:34:36 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strchr(const char *s, int c)
 	int	len;
 
 	i = 0;
-	len = ft_strlen_gnl(s);
+	len = slen_gnl(s);
 	while (i <= len)
 	{
 		if (s[i] == (char) c)
@@ -36,7 +36,7 @@ char	*ft_strjoin(char const *s1, char const *s2, size_t k)
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	r_s = (char *) malloc(sizeof(char) * (ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1));
+	r_s = (char *) malloc(sizeof(char) * (slen_gnl(s1) + slen_gnl(s2) + 1));
 	if (!r_s)
 		return (NULL);
 	i = 0;
@@ -56,7 +56,7 @@ char	*ft_strjoin(char const *s1, char const *s2, size_t k)
 	return (r_s);
 }
 
-size_t	ft_strlen_gnl(const char *s)
+size_t	slen_gnl(const char *s)
 {
 	size_t	i;
 
@@ -83,7 +83,7 @@ char	*new_line_finder(char *buff, char **line)
 	}
 	else
 	{
-		buff_len = ft_strlen_gnl(buff);
+		buff_len = slen_gnl(buff);
 		tmp = *line;
 		*line = ft_strjoin(*line, buff, buff_len);
 		free(tmp);

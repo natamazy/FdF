@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:17:53 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/13 21:48:18 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:34:43 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	src_size;
 
 	i = 0;
-	src_size = ft_strlen_gnl(src);
+	src_size = slen_gnl(src);
 	if (dstsize == 0)
 		return (src_size);
 	while ((i < (dstsize - 1)) && src[i])

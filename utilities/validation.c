@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 19:20:05 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/13 22:03:01 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:54:07 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	**parsing(int fd)
 {
 	char	*row;
 	char	**row_splited;
-	// int		row_length;
 
 	row = get_next_line(fd);
 	if (row == NULL)
@@ -44,17 +43,8 @@ int	**parsing(int fd)
 		ft_putstr_fd("Invalid map.\n", 2);
 		return (NULL);
 	}
-	printf("%s - gnl\n", row);
-	row_splited = ft_split(row, ' ');
-	for (size_t i = 0; row_splited[i]; i++)
-	{
-		printf("%s\n", row_splited[i]);
-	}
+	row_splited = ft_split(row, " \t\v\f\r\n");
 	return (NULL);
-	// while (1)
-	// {
-	// 	get_next_line(fd);
-	// }
 }
 
 int	validation(int argc, char **argv, t_vars *vars)

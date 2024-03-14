@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:58 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/13 22:00:18 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:48:06 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		validation(int argc, char *argv[], t_vars *vars);
 
 // Functions in ft_split.c
-char	**ft_split(char const *s, char c);
+char	**ft_split(char *str, char *charset);
 
 // Functions in ft_split_utils.c
 int		ft_isspace(char c);

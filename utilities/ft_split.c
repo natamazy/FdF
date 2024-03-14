@@ -6,89 +6,105 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:06:08 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/13 22:05:02 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:46:14 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-size_t	count_words(char const *s, char c)
+char	*ft_strcat(char *dest, char *src, int start, int end)
 {
-	size_t	count;
-	size_t	i;
+	int	i;
 
-	count = 0;
 	i = 0;
-	while (s[i])
+	while (start <= end)
 	{
-		if (ft_isspace(s[i]) == -1)
-		{
-			count++;
-			while (s[i] && ft_isspace(s[i]) == -1)
-				i++;
-		}
-		else if (ft_isspace(s[i]) == 1)
-			i++;
-	}
-	return (count);
-}
-
-size_t	get_word_len(char const *s, char c)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] && ft_isspace(s[i]) == -1)
+		dest[i] = src[start];
 		i++;
-	return (i);
-}
-
-void	free_array(size_t i, char **array)
-{
-	while (i > 0)
-	{
-		i--;
-		free(array[i]);
+		start++;
 	}
-	free(array);
+	dest[i] = '\0';
+	return (dest);
 }
 
-char	**split_helper(char const *s, char c, char **array, size_t words_count)
+int	is_cs(char c, char *charset)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
 
 	i = 0;
-	j = 0;
-	while (i < words_count)
+	while (charset[i] != '\0')
 	{
-		while (s[j] && s[j] == c)
-			j++;
-		array[i] = ft_substr(s, j, get_word_len(&s[j], c));
-		if (!array[i])
-		{
-			free_array(i, array);
-			return (NULL);
-		}
-		while (s[j] && ft_isspace(s[i]) == -1)
-			j++;
+		if (c == charset[i])
+			return (1);
 		i++;
 	}
-	array[i] = NULL;
-	return (array);
+	return (0);
 }
 
-char	**ft_split(char const *s, char c)
+char	*cut(char *str, char *charset, int s)
 {
-	char	**array;
-	size_t	words;
+	int		n;
+	int		i;
+	int		end;
+	char	*cur;
 
-	if (!s)
+	n = 0;
+	i = 0;
+	end = 0;
+	while (is_cs(str[i], charset) == 1)
+		i++;
+	while (n != s)
+	{
+		if (is_cs(str[i], charset) && !(is_cs(str[i + 1], charset)))
+			n++;
+		i++;
+	}
+	end = i;
+	while (!is_cs(str[end], charset) && (str[end + 1] != '\0')
+		&& !is_cs(str[end + 1], charset))
+		end++;
+	cur = (char *)malloc((end - i + 2) * sizeof(char));
+	if (cur == NULL)
 		return (NULL);
-	words = count_words(s, c);
-	array = (char **) malloc(sizeof(char *) * (words + 1));
-	if (!array)
+	ft_strcat(cur, str, i, end);
+	return (cur);
+}
+
+int	wc(char *str, char *charset)
+{
+	int	len;
+	int	i;
+
+	len = 0;
+	i = 0;
+	while (is_cs(str[i], charset) && (str[i + 1] != '\0'))
+		i++;
+	while (str[i] != '\0')
+	{
+		if (!is_cs(str[i], charset) && (((is_cs(str[i + 1], charset)))
+				|| (str[i + 1] == '\0')))
+			len++;
+		i++;
+	}
+	return (len);
+}
+
+char	**ft_split(char *str, char *charset)
+{
+	char	**result;
+	int		i;
+	int		len;
+
+	i = 0;
+	len = wc(str, charset);
+	result = (char **)malloc((len + 1) * sizeof(char *));
+	if (result == NULL)
 		return (NULL);
-	array = split_helper(s, c, array, words);
-	return (array);
+	while (i < len)
+	{
+		result[i] = cut(str, charset, i);
+		i++;
+	}
+	result[i] = 0;
+	return (result);
 }
