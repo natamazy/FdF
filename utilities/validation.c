@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 19:20:05 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/14 18:06:43 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:10:22 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	parsing_first_line(int fd, t_vars *vars)
 	pfree(NULL, vars, 0);
 	return (0);
 }
+
 int	extend_map(t_vars *vars)
 {
 	int	i;
