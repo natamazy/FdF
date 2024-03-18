@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:54 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/18 19:17:18 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:15:47 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	key_hook(int keycode, t_vars *vars)
 	else if (keycode == 2)
 		vars->z_zoom -= 5;
 	else if (keycode == 126)
-		vars->angle -= 0.01;
+		vars->angle -= 0.1;
 	else if (keycode == 125)
-		vars->angle += 0.01;
+		vars->angle += 0.1;
 	mlx_clear_window(vars->mlx, vars->win);
 	draw(vars);
 	return (0);
