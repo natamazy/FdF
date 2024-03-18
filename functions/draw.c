@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 12:33:49 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/18 13:42:23 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:48:32 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 #include <math.h>
 
-void	isometric(float *x, float *y, int z)
+void	isometric(float *x, float *y, int z, float angle)
 {
-	*x = (*x - *y) * cos(0.8);
-	*y = (*x + *y) * sin(0.8) - z;
+	*x = (*x - *y) * cos(angle);
+	*y = (*x + *y) * sin(angle) - z;
 }
 
 void	bresenham(float x, float y, float x1, float y1, t_vars *vars)
@@ -32,7 +32,12 @@ void	bresenham(float x, float y, float x1, float y1, t_vars *vars)
 
 	int	z1 = vars->map[(int)y][(int)x];
 	int	z2 = vars->map[(int)y1][(int)x1];
-
+	
+	if (z1 > 0)
+		z1 += vars->z_zoom;
+	if (z2 > 0)
+		z2 += vars->z_zoom;
+	
 	if (z1 > 0 || z2 > 0)
 		color = 0xff0000;
 	else
@@ -43,6 +48,13 @@ void	bresenham(float x, float y, float x1, float y1, t_vars *vars)
 	x1 *= vars->zoom;
 	y1 *= vars->zoom;
 
+	isometric(&x, &y, z1, vars->angle);
+	isometric(&x1, &y1, z2, vars->angle);
+	x += vars->shift;
+	y += vars->shift;
+	x1 += vars->shift;
+	y1 += vars->shift;
+	
 	x_step = x1 - x;
 	y_step = y1 - y;
 	
@@ -55,12 +67,10 @@ void	bresenham(float x, float y, float x1, float y1, t_vars *vars)
 	else
 		modul_ystep = y_step;
 	
-	// isometric(&x, &y, z1);
-	// isometric(&x1, &y1, z2);
-	if (x_step > y_step)
-		max = x_step;
+	if (modul_xstep > modul_ystep)
+		max = modul_xstep;
 	else
-		max = y_step;
+		max = modul_ystep;
 	
 	x_step /= max;
 	y_step /= max;

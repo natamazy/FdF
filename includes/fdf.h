@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:58 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/18 12:54:53 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:47:25 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ typedef struct s_vars
 	char	*row;
 	char	**row_splited;
 	int		zoom;
+	int		z_zoom;
+	int		shift;
+	float	angle;
 
 	void	*mlx;
 	void	*win;
