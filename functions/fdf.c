@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:54 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/14 18:45:13 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:24:00 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,11 @@ int	main(int argc, char *argv[])
 
 	if (validation(argc, argv, &vars) == 1)
 		return (1);
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 1000, 1000, "test");
+	vars.zoom = 10;
+	draw(&vars);
+	mlx_loop(vars.mlx);
+	
 }
 

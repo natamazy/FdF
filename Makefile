@@ -6,7 +6,7 @@
 #    By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 18:15:04 by natamazy          #+#    #+#              #
-#    Updated: 2024/03/14 18:16:07 by natamazy         ###   ########.fr        #
+#    Updated: 2024/03/18 12:49:00 by natamazy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ SRCS_NAME = fdf.c \
 			get_next_line.c \
 			get_next_line_utils.c \
 			ft_split.c \
-			ft_atoi.c
+			ft_atoi.c \
+			draw.c
 
 # Objects file names
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAME))
