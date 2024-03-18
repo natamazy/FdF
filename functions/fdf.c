@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:54 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/18 14:51:10 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/18 19:17:18 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int argc, char *argv[])
 	vars.shift = 150;
 	vars.angle = 0.8;
 	draw(&vars);
-	mlx_key_hook(vars.win, key_hook, &vars);
+	mlx_hook(vars.win, 2, 0, key_hook, &vars);
 	mlx_loop(vars.mlx);
 }
-

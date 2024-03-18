@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 12:33:49 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/18 14:48:32 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/18 19:12:39 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,35 @@ void	isometric(float *x, float *y, int z, float angle)
 	*y = (*x + *y) * sin(angle) - z;
 }
 
+float	float_abs(float x)
+{
+	if (x < 0)
+		return (-x);
+	return (x);
+}
+
 void	bresenham(float x, float y, float x1, float y1, t_vars *vars)
 {
 	float	x_step;
 	float	y_step;
 	int		max;
-	float	modul_xstep;
-	float	modul_ystep;
 	int		color;
 
 	int	z1 = vars->map[(int)y][(int)x];
 	int	z2 = vars->map[(int)y1][(int)x1];
-	
+
 	if (z1 > 0)
 		z1 += vars->z_zoom;
 	if (z2 > 0)
 		z2 += vars->z_zoom;
-	
 	if (z1 > 0 || z2 > 0)
 		color = 0xff0000;
 	else
 		color = 0xffffff;
-
 	x *= vars->zoom;
 	y *= vars->zoom;
 	x1 *= vars->zoom;
 	y1 *= vars->zoom;
-
 	isometric(&x, &y, z1, vars->angle);
 	isometric(&x1, &y1, z2, vars->angle);
 	x += vars->shift;
@@ -58,19 +60,10 @@ void	bresenham(float x, float y, float x1, float y1, t_vars *vars)
 	x_step = x1 - x;
 	y_step = y1 - y;
 	
-	if (x_step < 0)
-		modul_xstep = -x_step;
+	if (float_abs(x_step) > float_abs(y_step))
+		max = float_abs(x_step);
 	else
-		modul_xstep = x_step;
-	if (y_step < 0)
-		modul_ystep = -y_step;
-	else
-		modul_ystep = y_step;
-	
-	if (modul_xstep > modul_ystep)
-		max = modul_xstep;
-	else
-		max = modul_ystep;
+		max = float_abs(y_step);
 	
 	x_step /= max;
 	y_step /= max;
