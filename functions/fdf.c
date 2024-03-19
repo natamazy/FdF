@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:54 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/18 20:15:47 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:04:46 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,30 @@ int	key_hook(int keycode, t_vars *vars)
 	else if (keycode == 78)
 		vars->zoom -= 1;
 	else if (keycode == 32)
-		vars->z_zoom += 5;
+		vars->z_zoom += 10;
 	else if (keycode == 2)
-		vars->z_zoom -= 5;
+		vars->z_zoom -= 10;
 	else if (keycode == 126)
 		vars->angle -= 0.1;
 	else if (keycode == 125)
 		vars->angle += 0.1;
+	else if (keycode >= 18 && keycode <= 20)
+	{
+		if (keycode == 18)
+			vars->color_mode = 1;
+		else if (keycode == 19)
+			vars->color_mode = 2;
+		else
+			vars->color_mode = 3;
+	}
+	else if (keycode == 17)
+	{
+		if (vars->top_view == 1)
+			vars->top_view = 0;
+		else
+			vars->top_view = 1;
+	}
+	printf("%d\n", keycode);
 	mlx_clear_window(vars->mlx, vars->win);
 	draw(vars);
 	return (0);
@@ -44,8 +61,12 @@ int	main(int argc, char *argv[])
 	vars.win = mlx_new_window(vars.mlx, 1000, 1000, "test");
 	vars.zoom = 30;
 	vars.z_zoom = 0;
-	vars.shift = 150;
+	vars.shift = 300;
 	vars.angle = 0.8;
+
+
+
+	
 	draw(&vars);
 	mlx_hook(vars.win, 2, 0, key_hook, &vars);
 	mlx_loop(vars.mlx);
