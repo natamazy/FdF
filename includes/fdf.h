@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:58 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/19 13:02:17 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/19 19:26:46 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@
 
 # include <stdio.h>
 
+typedef struct s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_data;
+
 typedef struct s_vars
 {
 	int		**map;
@@ -27,7 +36,8 @@ typedef struct s_vars
 	int		y_size;
 	int		zoom;
 	int		z_zoom;
-	int		shift;
+	int		x_shift;
+	int		y_shift;
 	int		max;
 	int		color_mode;
 	int		top_view;
@@ -41,6 +51,8 @@ typedef struct s_vars
 
 	void	*mlx;
 	void	*win;
+
+	t_data	*img;
 }	t_vars;
 
 typedef struct s_xyz

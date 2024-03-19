@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 12:33:49 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/19 13:03:27 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/19 19:27:50 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ float	float_abs(float x)
 
 void	shifting(t_xyz *xyz, t_vars *vars)
 {
-	xyz->x += vars->shift;
-	xyz->y += vars->shift;
-	xyz->x1 += vars->shift;
-	xyz->y1 += vars->shift;
+	xyz->x += vars->x_shift;
+	xyz->y += vars->y_shift;
+	xyz->x1 += vars->x_shift;
+	xyz->y1 += vars->y_shift;
 }
 
 void	zooming(t_xyz *xyz, t_vars *vars)
@@ -56,9 +56,9 @@ void	init_z(t_xyz *xyz, t_vars *vars)
 {
 	xyz->z1 = vars->map[(int)xyz->y][(int)xyz->x];
 	xyz->z2 = vars->map[(int)xyz->y1][(int)xyz->x1];
-	if (xyz->z1 > 0)
+	if (xyz->z1 != 0)
 		xyz->z1 += vars->z_zoom;
-	if (xyz->z2 > 0)
+	if (xyz->z2 != 0)
 		xyz->z2 += vars->z_zoom;
 }
 
@@ -98,12 +98,20 @@ unsigned int	generate_color_gradient(void)
 	return (color);
 }
 
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	if (dst >= data->addr)
+		*(unsigned int *) dst = color;
+}
+
 void	final_drawing(t_xyz *xyz, t_vars *vars)
 {
 	while ((int)(xyz->x - xyz->x1) || (int)(xyz->y - xyz->y1))
 	{
-		mlx_pixel_put(vars->mlx, vars->win, (int) xyz->x,
-			(int) xyz->y, vars->color);
+		my_mlx_pixel_put(vars->img, (int) xyz->x, (int) xyz->y, vars->color);
 		xyz->x += xyz->x_step;
 		xyz->y += xyz->y_step;
 	}
