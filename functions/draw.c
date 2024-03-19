@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 12:33:49 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/19 20:09:07 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:56:32 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,26 @@
 
 #include <math.h>
 
-void	isometric(float *x, float *y, int z, float angle)
+void	isometric(float *x, float *y, int z, float angle, int flip)
 {
-	*x = (*x - *y) * cos(angle);
-	*y = (*x + *y) * sin(angle) - z;
+	if (flip == 1)
+	{
+		*x = (*x + *y) * cos(angle);
+		*y = (*x - *y) * sin(angle) - z;
+	}
+	else
+	{
+		*x = (*x - *y) * cos(angle);
+		*y = (*x + *y) * sin(angle) - z;
+	}
 }
 
 void	isometric_two_coordinates(t_xyz *xyz, float angle, t_vars *vars)
 {
 	if (vars->top_view == 1)
 		return ;
-	isometric(&(xyz->x), &(xyz->y), xyz->z1, angle);
-	isometric(&(xyz->x1), &(xyz->y1), xyz->z2, angle);
+	isometric(&(xyz->x), &(xyz->y), xyz->z1, angle, vars->flip);
+	isometric(&(xyz->x1), &(xyz->y1), xyz->z2, angle, vars->flip);
 }
 
 float	float_abs(float x)
@@ -164,7 +172,7 @@ void	coloring(t_xyz *xyz, t_vars *vars)
 {
 	if (vars->color_mode == 1)
 	{
-		vars->color = 0x000000;
+		vars->color = 0xffffff;
 	}
 	else if (vars->color_mode == 2)
 	{

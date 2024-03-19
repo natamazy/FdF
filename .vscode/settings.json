@@ -1,5 +1,7 @@
 {
 	"files.associations": {
-		"fdf.h": "c"
+		"fdf.h": "c",
+		"__bit_reference": "c",
+		"bitset": "c"
 	}
 }

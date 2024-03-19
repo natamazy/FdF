@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:58 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/19 19:26:46 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/19 20:40:05 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_vars
 	int		max;
 	int		color_mode;
 	int		top_view;
+	int		flip;
 
 	int		color;
 
