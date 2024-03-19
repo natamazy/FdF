@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:54 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/19 19:28:19 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/19 20:05:57 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	draw_new(t_vars *vars)
 
 int	key_hook(int keycode, t_vars *vars)
 {
-	if (keycode == 69)
+	if (keycode == 24)
 		vars->zoom += 1;
-	else if (keycode == 78)
+	else if (keycode == 27)
 		vars->zoom -= 1;
 	else if (keycode == 32)
 		vars->z_zoom += 10;
@@ -43,6 +43,10 @@ int	key_hook(int keycode, t_vars *vars)
 		vars->y_shift += 10;
 	else if (keycode == 126)
 		vars->y_shift -= 10;
+	else if (keycode == 31)
+		vars->angle += 0.1;
+	else if (keycode == 35)
+		vars->angle += 0.1;
 	else if (keycode >= 18 && keycode <= 20)
 	{
 		if (keycode == 18)
@@ -59,6 +63,7 @@ int	key_hook(int keycode, t_vars *vars)
 		else
 			vars->top_view = 1;
 	}
+	printf("%d\n", keycode);
 	draw_new(vars);
 	return (0);
 }
