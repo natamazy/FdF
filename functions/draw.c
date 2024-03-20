@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 12:33:49 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/20 12:25:59 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:21:06 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 		return ;
 	if (x * (data->bits_per_pixel / 8) > data->line_length - 1)
 		return ;
-	if (dst >= data->addr && dst < data->addr + (1080 /*windows y*/ * data->line_length))
+	if (dst >= data->addr && dst < data->addr + (1080 * data->line_length))
 		*(unsigned int *) dst = color;
 }
 
