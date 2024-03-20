@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:47:11 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/20 21:47:33 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:57:51 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	step_modification(t_xyz *xyz, t_vars *vars)
 	xyz->y_step /= vars->max;
 }
 
-unsigned int	random_color(void)
+int	random_color(void)
 {
 	return ((unsigned int)(rand() % 0xFFFFFF) + 1);
 }

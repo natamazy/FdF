@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:58 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/20 21:53:14 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:58:06 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	init_z(t_xyz *xyz, t_vars *vars);
 void	init_step(t_xyz *xyz);
 void	init_max(t_xyz *xyz, t_vars *vars);
 void	step_modification(t_xyz *xyz, t_vars *vars);
-unsigned int	random_color(void);
+int		random_color(void);
 
 // Functions in bonus_moves_3.c
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
