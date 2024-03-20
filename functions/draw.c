@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 12:33:49 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/20 20:21:06 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:34:32 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 
 #include <math.h>
 
-void	isometric(float *x, float *y, int z, float angle, int flip)
+void	isometric(float *x, float *y, int z, t_vars *vars)
 {
-	if (flip == 1)
+	if (vars->flip == 1)
 	{
-		*x = (*x + *y) * cos(angle);
-		*y = (*x - *y) * sin(angle) - z;
+		*x = (*x + *y) * cos(vars->angle);
+		*y = (*x - *y) * sin(vars->angle) - z;
 	}
 	else
 	{
-		*x = (*x - *y) * cos(angle);
-		*y = (*x + *y) * sin(angle) - z;
+		*x = (*x - *y) * cos(vars->angle);
+		*y = (*x + *y) * sin(vars->angle) - z;
 	}
 }
 
-void	isometric_two_coordinates(t_xyz *xyz, float angle, t_vars *vars)
+void	isometric_two_coordinates(t_xyz *xyz, t_vars *vars)
 {
 	if (vars->top_view == 1)
 		return ;
-	isometric(&(xyz->x), &(xyz->y), xyz->z1, angle, vars->flip);
-	isometric(&(xyz->x1), &(xyz->y1), xyz->z2, angle, vars->flip);
+	isometric(&(xyz->x), &(xyz->y), xyz->z1, vars);
+	isometric(&(xyz->x1), &(xyz->y1), xyz->z2, vars);
 }
 
 float	float_abs(float x)
@@ -194,7 +194,7 @@ void	bresenham(t_xyz xyz, t_vars *vars)
 {
 	init_z(&xyz, vars);
 	zooming(&xyz, vars);
-	isometric_two_coordinates(&xyz, vars->angle, vars);
+	isometric_two_coordinates(&xyz, vars);
 	shifting(&xyz, vars);
 	init_step(&xyz);
 	init_max(&xyz, vars);

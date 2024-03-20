@@ -6,7 +6,7 @@
 #    By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 18:15:04 by natamazy          #+#    #+#              #
-#    Updated: 2024/03/19 18:52:00 by natamazy         ###   ########.fr        #
+#    Updated: 2024/03/20 21:11:20 by natamazy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = fdf
 # Compilator
 CC = cc
 # Compilator flags
-CFLAGS = -Wall -Wextra -Werror -I minilibx_macos -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I minilibx_macos #-g3 -fsanitize=address
 LDFLAGS = -Lminilibx_macos -lmlx -framework OpenGL -framework AppKit
 
 # Headers

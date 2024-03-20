@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:28:11 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/19 21:30:29 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:08:20 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,5 @@ int	ft_atoi(const char *str)
 		res += str[i] - '0';
 		i++;
 	}
-	if (res * sign > 100000)
-		return (100000);
-	else
-		return (sign * res);
+	return (res * sign);
 }
