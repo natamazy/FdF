@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:58 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/19 20:40:05 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:53:14 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,31 @@ int		pfree(char *str, t_vars *vars, int return_value);
 // Functions in fraw.c
 void	bresenham(t_xyz xyz, t_vars *vars);
 void	draw(t_vars *vars);
+
+// Functions in bonus.c
+void	bonus_part_1(int keycode, t_vars *vars);
+void	bonus_part_2(int keycode, t_vars *vars);
+void	bonus_part_3(int keycode, t_vars *vars);
+
+// Functions in bonus_moves_1.c
+void	isometric(float *x, float *y, int z, t_vars *vars);
+void	isometric_two_coordinates(t_xyz *xyz, t_vars *vars);
+float	float_abs(float x);
+void	shifting(t_xyz *xyz, t_vars *vars);
+void	zooming(t_xyz *xyz, t_vars *vars);
+
+// Functions in bonus_moves_2.c
+void	init_z(t_xyz *xyz, t_vars *vars);
+void	init_step(t_xyz *xyz);
+void	init_max(t_xyz *xyz, t_vars *vars);
+void	step_modification(t_xyz *xyz, t_vars *vars);
+unsigned int	random_color(void);
+
+// Functions in bonus_moves_3.c
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	final_drawing(t_xyz *xyz, t_vars *vars);
+t_xyz	init_xyz(float x, float y, float x1, float y1);
+void	draw(t_vars *vars);
+void	coloring(t_xyz *xyz, t_vars *vars);
 
 #endif

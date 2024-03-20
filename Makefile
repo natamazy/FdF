@@ -6,7 +6,7 @@
 #    By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 18:15:04 by natamazy          #+#    #+#              #
-#    Updated: 2024/03/20 21:11:20 by natamazy         ###   ########.fr        #
+#    Updated: 2024/03/20 21:53:23 by natamazy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,11 @@ SRCS_NAME = fdf.c \
 			get_next_line_utils.c \
 			ft_split.c \
 			ft_atoi.c \
-			draw.c
+			draw.c \
+			bonus.c \
+			bonus_moves_1.c \
+			bonus_moves_2.c \
+			bonus_moves_3.c
 
 # Objects file names
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAME))

@@ -2,6 +2,7 @@
 	"files.associations": {
 		"fdf.h": "c",
 		"__bit_reference": "c",
-		"bitset": "c"
+		"bitset": "c",
+		"mlx.h": "c"
 	}
 }

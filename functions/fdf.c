@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:54 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/20 21:33:06 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:43:32 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,65 +27,10 @@ void	draw_new(t_vars *vars)
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img, 0, 0);
 }
 
-void	bonus_part_1(int keycode, t_vars *vars)
-{
-	if (keycode == 24)
-		vars->zoom += 1;
-	else if (keycode == 27)
-		vars->zoom -= 1;
-	else if (keycode == 32)
-		vars->z_zoom += 10;
-	else if (keycode == 2)
-		vars->z_zoom -= 10;
-	else if (keycode == 124)
-		vars->x_shift += 10;
-	else if (keycode == 123)
-		vars->x_shift -= 10;
-	else if (keycode == 125)
-		vars->y_shift += 10;
-	else if (keycode == 126)
-		vars->y_shift -= 10;
-}
-
-void	bonus_part_2(int keycode, t_vars *vars)
-{
-	if (keycode == 31)
-		vars->angle += 0.1;
-	else if (keycode == 35)
-		vars->angle -= 0.1;
-	else if (keycode >= 18 && keycode <= 20)
-	{
-		if (keycode == 18)
-			vars->color_mode = 1;
-		else if (keycode == 19)
-			vars->color_mode = 2;
-		else
-			vars->color_mode = 3;
-	}
-}
-
-void	bonus_part_3(int keycode, t_vars *vars)
-{
-	if (keycode == 17)
-	{
-		if (vars->top_view == 1)
-			vars->top_view = 0;
-		else
-			vars->top_view = 1;
-	}
-	else if (keycode == 3)
-	{
-		if (vars->flip == 1)
-			vars->flip = 0;
-		else
-			vars->flip = 1;
-	}
-}
-
 int	key_hook(int keycode, t_vars *vars)
 {
 	if (keycode == 24 || keycode == 27 || keycode == 32
-		|| (keycode >= 123 && keycode <= 126))
+		|| keycode == 2 || (keycode >= 123 && keycode <= 126))
 		bonus_part_1(keycode, vars);
 	else if (keycode == 31 || keycode == 35
 		|| (keycode >= 18 && keycode <= 20))
