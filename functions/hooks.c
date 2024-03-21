@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 13:06:17 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/21 13:06:50 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:07:55 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	key_hook(int keycode, t_vars *vars)
 		|| keycode == 2 || (keycode >= 123 && keycode <= 126) || keycode == 31
 		|| keycode == 35 || (keycode >= 17 && keycode <= 20) || keycode == 3)
 		draw_new(vars);
+	if (keycode == 53)
+		exit_window(vars);
 	return (0);
 }
 
