@@ -6,7 +6,7 @@
 #    By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 18:15:04 by natamazy          #+#    #+#              #
-#    Updated: 2024/03/20 21:53:23 by natamazy         ###   ########.fr        #
+#    Updated: 2024/03/21 13:07:23 by natamazy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRCS_NAME = fdf.c \
 			ft_atoi.c \
 			draw.c \
 			bonus.c \
+			hooks.c \
 			bonus_moves_1.c \
 			bonus_moves_2.c \
 			bonus_moves_3.c

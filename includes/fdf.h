@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:58 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/20 21:58:06 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/21 13:08:54 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ typedef struct s_vars
 	int		color_mode;
 	int		top_view;
 	int		flip;
-
+	int		length;
+	int		width;
 	int		color;
 
 	char	*row;
@@ -93,9 +94,9 @@ int		ft_array_len(char **array);
 int		*convert_line(t_vars *vars);
 int		pfree(char *str, t_vars *vars, int return_value);
 
-// Functions in fraw.c
+// Functions in draw.c
 void	bresenham(t_xyz xyz, t_vars *vars);
-void	draw(t_vars *vars);
+void	draw_new(t_vars *vars);
 
 // Functions in bonus.c
 void	bonus_part_1(int keycode, t_vars *vars);
@@ -122,5 +123,10 @@ void	final_drawing(t_xyz *xyz, t_vars *vars);
 t_xyz	init_xyz(float x, float y, float x1, float y1);
 void	draw(t_vars *vars);
 void	coloring(t_xyz *xyz, t_vars *vars);
+
+// Functions in hooks.c
+int		key_hook(int keycode, t_vars *vars);
+int		mouse_hook(int keycode, int x, int y, t_vars *vars);
+int		exit_window(t_vars *vars);
 
 #endif
