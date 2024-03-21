@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:51:50 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/20 21:53:37 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:38:31 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,10 @@ void	coloring(t_xyz *xyz, t_vars *vars)
 	else
 	{
 		if (xyz->z1 || xyz->z2)
-			vars->color = random_color();
+		{
+			vars->color = random_color(vars->seed);
+			vars->seed += 1;
+		}
 		else
 			vars->color = 0xff00ff;
 	}

@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:58 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/21 13:08:54 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:39:18 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_vars
 	int		length;
 	int		width;
 	int		color;
+	int		seed;
 
 	char	*row;
 	char	**row_splited;
@@ -115,7 +116,7 @@ void	init_z(t_xyz *xyz, t_vars *vars);
 void	init_step(t_xyz *xyz);
 void	init_max(t_xyz *xyz, t_vars *vars);
 void	step_modification(t_xyz *xyz, t_vars *vars);
-int		random_color(void);
+int		random_color(int seed);
 
 // Functions in bonus_moves_3.c
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);

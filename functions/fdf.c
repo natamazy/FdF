@@ -6,7 +6,7 @@
 /*   By: natamazy <natamazy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:25:54 by natamazy          #+#    #+#             */
-/*   Updated: 2024/03/21 15:05:29 by natamazy         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:39:03 by natamazy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	init_standart(t_vars *vars, t_data *img)
 	vars->y_shift = 400;
 	vars->angle = 0.8;
 	vars->img = img;
+	vars->seed = 111;
 }
 
 int	main(int argc, char *argv[])
